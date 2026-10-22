@@ -1,0 +1,13 @@
+interface:
+  display_name: "Research Ideation"
+  short_description: "Develop evidence-grounded ideas across research disciplines"
+  default_prompt: "Use $research-ideation to develop evidence-grounded research ideas and falsifiable validation plans."
+  icon_small: "assets/icon.svg"
+  icon_large: "assets/icon.svg"
+policy:
+  products:
+    - "chatgpt"
+    - "codex"
+    - "api"
+    - "atlas"
+  allow_implicit_invocation: true

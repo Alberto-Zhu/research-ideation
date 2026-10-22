@@ -1,0 +1,213 @@
+[
+  {
+    "id": "P01",
+    "title": "IdeaScientist: Orchestrating Agents for Grounded Scientific Ideation",
+    "authors_display": "Jiarui Liu et al.",
+    "year": 2026,
+    "venue_or_status": "arXiv preprint, v2 (2026-10-09)",
+    "url": "https://arxiv.org/abs/2610.04074v2",
+    "review_access": "full_text_sections",
+    "tags": [
+      "gap",
+      "transfer",
+      "role-specific RL"
+    ],
+    "summary_zh": "分阶段产物与人类论文重建参考支持各角色训练；主结果评估科研方案，未执行方案实验。",
+    "skill_adaptation_zh": "阶段化证据与机制迁移；借鉴流程，不声称复现GRPO训练。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P02",
+    "title": "SciMON: Scientific Inspiration Machines Optimized for Novelty",
+    "authors_display": "Qingyun Wang, Doug Downey, Heng Ji, Tom Hope",
+    "year": 2024,
+    "venue_or_status": "ACL 2024",
+    "url": "https://aclanthology.org/2024.acl-long.18/",
+    "review_access": "abstract",
+    "tags": [
+      "retrieval",
+      "iterative novelty"
+    ],
+    "summary_zh": "检索已有论文作为灵感，再反复对照先前工作修订候选想法。",
+    "skill_adaptation_zh": "将新颖性检索设为反复执行的检查，而非一次自评。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P03",
+    "title": "ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models",
+    "authors_display": "Jinheon Baek et al.",
+    "year": 2025,
+    "venue_or_status": "NAACL 2025",
+    "url": "https://aclanthology.org/2025.naacl-long.342/",
+    "review_access": "abstract",
+    "tags": [
+      "literature graph",
+      "review"
+    ],
+    "summary_zh": "从核心论文出发，通过论文关系和共享实体扩展知识，并由评审反馈迭代问题、方法与实验。",
+    "skill_adaptation_zh": "先找到近邻文献和概念，再分离生成与评审。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P04",
+    "title": "SciPIP: An LLM-based Scientific Paper Idea Proposer",
+    "authors_display": "Wenxiao Wang et al.",
+    "year": 2024,
+    "venue_or_status": "arXiv preprint, v2 (2025-02-17)",
+    "url": "https://arxiv.org/abs/2410.23166v2",
+    "review_access": "full_text_sections",
+    "tags": [
+      "hybrid retrieval",
+      "dual path"
+    ],
+    "summary_zh": "结合语义、关键词与共现关系检索；将文献驱动生成与模型内部知识驱动生成整合。",
+    "skill_adaptation_zh": "用多类检索和不同生成路线扩大覆盖，最终逐一补齐证据。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P05",
+    "title": "Human-LLM Compound System for Scientific Ideation through Facet Recombination and Novelty Evaluation",
+    "authors_display": "Marissa Radensky et al.",
+    "year": 2024,
+    "venue_or_status": "arXiv preprint, v7 (2026-05-16); Scideator",
+    "url": "https://arxiv.org/abs/2409.14634v7",
+    "review_access": "full_text_sections",
+    "tags": [
+      "facets",
+      "controlled-distance analogy"
+    ],
+    "summary_zh": "围绕目的、机制、评估三个facet组织文献与想法，并按概念距离检索类比文献。",
+    "skill_adaptation_zh": "按结构化facet组合机制；避免仅交换领域名。记录论文标题随版本变化。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P06",
+    "title": "Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents",
+    "authors_display": "Long Li et al.",
+    "year": 2025,
+    "venue_or_status": "Findings of EMNLP 2025",
+    "url": "https://aclanthology.org/2025.findings-emnlp.477/",
+    "review_access": "abstract",
+    "tags": [
+      "research trajectory",
+      "arena"
+    ],
+    "summary_zh": "按研究演进链组织文献，帮助理解方法如何逐步解决限制，并提出Idea Arena评估协议。",
+    "skill_adaptation_zh": "整理最近方法的限制与后继改进链；比较候选时统一细节。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P07",
+    "title": "MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses",
+    "authors_display": "Zonglin Yang et al.",
+    "year": 2025,
+    "venue_or_status": "ICLR 2025; arXiv v6 (2025-10-27)",
+    "url": "https://arxiv.org/abs/2410.07076v6",
+    "review_access": "abstract",
+    "tags": [
+      "inspiration",
+      "hypothesis",
+      "ranking"
+    ],
+    "summary_zh": "将假设发现分成灵感检索、假设组合和质量排序；在51篇化学论文形成的基准上进行重发现评估。",
+    "skill_adaptation_zh": "分开检查灵感质量、组合逻辑与排序；相似重发现不等于新实验成功。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P08",
+    "title": "Accelerating scientific discovery with Co-Scientist",
+    "authors_display": "Juraj Gottweis et al.",
+    "year": 2026,
+    "venue_or_status": "Nature, published 2026-05-19",
+    "url": "https://www.nature.com/articles/s41586-026-10644-y",
+    "review_access": "full_text_sections",
+    "tags": [
+      "tournament",
+      "evolution",
+      "meta-review"
+    ],
+    "summary_zh": "专门角色生成、反思、排名、演化与聚类假设，以竞赛反馈和元评审改进后续搜索。",
+    "skill_adaptation_zh": "采用有限轮候选演化、去重和批评汇总；不将Elo当成科学真值。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P09",
+    "title": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+    "authors_display": "Yutaro Yamada et al.",
+    "year": 2025,
+    "venue_or_status": "arXiv preprint, v1",
+    "url": "https://arxiv.org/abs/2504.08066v1",
+    "review_access": "abstract",
+    "tags": [
+      "execution",
+      "tree search"
+    ],
+    "summary_zh": "贯通假设、实验、分析与论文写作，以实验管理角色和渐进式树搜索探索方案。",
+    "skill_adaptation_zh": "将入选构思交接到小规模实验；保留执行日志与失败分支。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P10",
+    "title": "Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers",
+    "authors_display": "Chenglei Si, Diyi Yang, Tatsunori Hashimoto",
+    "year": 2025,
+    "venue_or_status": "ICLR 2025",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/ea94957d81b1c1caf87ef5319fa6b467-Abstract-Conference.html",
+    "review_access": "abstract",
+    "tags": [
+      "human evaluation",
+      "novelty vs feasibility"
+    ],
+    "summary_zh": "在特定受控人类评测中，LLM方案被评为更新颖，但可行性略弱。",
+    "skill_adaptation_zh": "分开评估新颖性与可行性；不将结果推广为所有领域的结论。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P11",
+    "title": "The Ideation-Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas",
+    "authors_display": "Chenglei Si, Tatsunori Hashimoto, Diyi Yang",
+    "year": 2026,
+    "venue_or_status": "ICLR 2026; arXiv first posted 2025",
+    "url": "https://arxiv.org/abs/2506.20803",
+    "review_access": "abstract",
+    "tags": [
+      "execution gap",
+      "expert study"
+    ],
+    "summary_zh": "43位专家执行随机分配的想法；LLM想法执行后的评审下降更大，初始优势缩小。",
+    "skill_adaptation_zh": "每个核心机制必须附最小鉴别实验、反证条件和停止规则。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P12",
+    "title": "ResearchGym: Evaluating Language Model Agents on Real-World AI Research",
+    "authors_display": "Aniketh Garikaparthi, Manasi Patwardhan, Arman Cohan",
+    "year": 2026,
+    "venue_or_status": "ICLR 2026 Agents in the Wild Workshop; arXiv v2",
+    "url": "https://arxiv.org/abs/2602.15112v2",
+    "review_access": "abstract",
+    "tags": [
+      "execution reliability",
+      "benchmark"
+    ],
+    "summary_zh": "在固定数据、评估与基线的容器任务中评测完整科研，揭示长程执行的可靠性与资源管理问题。",
+    "skill_adaptation_zh": "固定评估边界并安排有信息增益的小实验；保留超时和失败结果。",
+    "verified_on": "2026-10-22"
+  },
+  {
+    "id": "P13",
+    "title": "SciAgents: Automating Scientific Discovery Through Bioinspired Multi-Agent Intelligent Graph Reasoning",
+    "authors_display": "Alireza Ghafarollahi, Markus J. Buehler",
+    "year": 2025,
+    "venue_or_status": "Advanced Materials 37, e2413523",
+    "url": "https://doi.org/10.1002/adma.202413523",
+    "review_access": "primary_search_abstract_only",
+    "tags": [
+      "knowledge graph",
+      "interdisciplinary mechanisms"
+    ],
+    "summary_zh": "结合本体知识图谱、语言模型和多智能体推理，探索生物启发材料中的跨学科联系。",
+    "skill_adaptation_zh": "可选用概念与机制关系图辅助跨域检索；关系存在不能直接证明因果或可迁移。",
+    "verified_on": "2026-10-22"
+  }
+]
