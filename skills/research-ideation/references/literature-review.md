@@ -1,171 +1,161 @@
-# 科研构思与创新机制：文献调研及 skill 转化
+# Research Ideation and Innovation: Literature Review and Skill Design
 
-核验日期：2026-10-22。范围为文献驱动的科研构思、类比迁移、候选演化，以及构思质量与执行效用评估。
-这是按方法相关性选取的研究综述，不是穷尽性系统综述。仅使用论文、官方会议页面、作者代码及原始摘要作为技术依据。
-审阅深度明确区分方法章节与摘要；未将无法访问的正文记为已精读。机器可读条目见 [bibliography.json](bibliography.json)。
+**English** | [简体中文](literature-review.zh-CN.md)
 
-## 目录
+Verified on **2026-10-22**. This review covers literature-grounded scientific ideation, analogical transfer, candidate evolution, and the evaluation of idea quality and execution utility.
 
-1. 方法谱系
-2. 十三篇核心工作
-3. 关键取舍
-4. 本 skill 的综合设计
-5. 使用边界
+The papers were selected for methodological relevance; this is not an exhaustive systematic review. Technical claims draw on papers, official proceedings, author code, and original abstracts. Review depth distinguishes selected full-text sections from abstract-only access. Inaccessible full texts are not represented as having been read in depth. Machine-readable records are available in [bibliography.json](bibliography.json).
 
-## 1. 方法谱系
+## Contents
 
-| 方法线 | 代表工作 | 在 skill 中的对应操作 |
+1. Method families
+2. Thirteen core works
+3. Key tradeoffs
+4. Synthesis into this skill
+5. Scope and limitations
+
+## 1. Method families
+
+| Method family | Representative works | Corresponding skill operations |
 |---|---|---|
-| 文献证据与近邻限制 | P01、P02、P03、P04 | 证据账本、近似方法、具体失败机制 |
-| 跨领域结构迁移与facet组合 | P01、P05、P07、P13 | 共享结构、适配操作、失效边界 |
-| 研究轨迹与候选演化 | P06、P08 | 演进链、匿名对比、有上限的修订 |
-| 实验执行与可靠性 | P09、P11、P12 | 最小鉴别实验、预算和停止规则 |
-| 人类/模型评估边界 | P01、P10、P11 | 独立评审、可行性分离、保留不确定性 |
+| Literature evidence and limitations of close prior work | P01, P02, P03, P04 | Evidence ledger, near-miss methods, concrete failure mechanisms |
+| Cross-domain structural transfer and facet recombination | P01, P05, P07, P13 | Shared structure, adaptation steps, failure boundaries |
+| Research trajectories and candidate evolution | P06, P08 | Development chains, anonymous comparisons, bounded revision |
+| Experimental execution and reliability | P09, P11, P12 | Minimal discriminating experiments, budgets, stopping rules |
+| Limits of human and model evaluation | P01, P10, P11 | Independent review, separate feasibility assessment, explicit uncertainty |
 
-## 2. 十三篇核心工作
+## 2. Thirteen core works
 
 ### P01 · IdeaScientist: Orchestrating Agents for Grounded Scientific Ideation
 
-- 作者与版本：Jiarui Liu et al.；arXiv preprint, v2 (2026-10-09)。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2610.04074v2)。
-- 本次核验深度：full_text_sections。
-- 核心内容：分阶段产物与人类论文重建参考支持各角色训练；主结果评估科研方案，未执行方案实验。
-- 转化为操作：阶段化证据与机制迁移；借鉴流程，不声称复现GRPO训练。
+- **Authors and version:** Jiarui Liu et al.; arXiv preprint, v2 (2026-10-09).
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2610.04074v2).
+- **Review depth:** Selected full-text sections (`full_text_sections`).
+- **Core contribution:** Stage-specific artifacts and references reconstructed from human papers support training individual roles. The main results evaluate research proposals without executing the proposed experiments.
+- **Skill adaptation:** Use stage-specific evidence and mechanism transfer as workflow principles; do not claim to reproduce its GRPO training.
 
 ### P02 · SciMON: Scientific Inspiration Machines Optimized for Novelty
 
-- 作者与版本：Qingyun Wang, Doug Downey, Heng Ji, Tom Hope；ACL 2024。
-- 原始来源：[论文 / 官方页面](https://aclanthology.org/2024.acl-long.18/)。
-- 本次核验深度：abstract。
-- 核心内容：检索已有论文作为灵感，再反复对照先前工作修订候选想法。
-- 转化为操作：将新颖性检索设为反复执行的检查，而非一次自评。
+- **Authors and version:** Qingyun Wang, Doug Downey, Heng Ji, Tom Hope; ACL 2024.
+- **Primary source:** [Paper / official page](https://aclanthology.org/2024.acl-long.18/).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Retrieve prior papers as inspirations, then repeatedly compare candidate ideas with prior work and revise them.
+- **Skill adaptation:** Make novelty retrieval a recurring check rather than a one-off self-assessment.
 
 ### P03 · ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models
 
-- 作者与版本：Jinheon Baek et al.；NAACL 2025。
-- 原始来源：[论文 / 官方页面](https://aclanthology.org/2025.naacl-long.342/)。
-- 本次核验深度：abstract。
-- 核心内容：从核心论文出发，通过论文关系和共享实体扩展知识，并由评审反馈迭代问题、方法与实验。
-- 转化为操作：先找到近邻文献和概念，再分离生成与评审。
+- **Authors and version:** Jinheon Baek et al.; NAACL 2025.
+- **Primary source:** [Paper / official page](https://aclanthology.org/2025.naacl-long.342/).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Starting from a seed paper, expand knowledge through paper relationships and shared entities, then use reviewer feedback to refine questions, methods, and experiments.
+- **Skill adaptation:** Identify nearby literature and concepts before separating generation from review.
 
 ### P04 · SciPIP: An LLM-based Scientific Paper Idea Proposer
 
-- 作者与版本：Wenxiao Wang et al.；arXiv preprint, v2 (2025-02-17)。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2410.23166v2)。
-- 本次核验深度：full_text_sections。
-- 核心内容：结合语义、关键词与共现关系检索；将文献驱动生成与模型内部知识驱动生成整合。
-- 转化为操作：用多类检索和不同生成路线扩大覆盖，最终逐一补齐证据。
+- **Authors and version:** Wenxiao Wang et al.; arXiv preprint, v2 (2025-02-17).
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2410.23166v2).
+- **Review depth:** Selected full-text sections (`full_text_sections`).
+- **Core contribution:** Combine semantic, keyword, and co-occurrence retrieval, and integrate literature-driven generation with generation based on the model's internal knowledge.
+- **Skill adaptation:** Broaden coverage through multiple retrieval and generation routes, then complete the supporting evidence for each idea.
 
 ### P05 · Human-LLM Compound System for Scientific Ideation through Facet Recombination and Novelty Evaluation
 
-- 作者与版本：Marissa Radensky et al.；arXiv preprint, v7 (2026-05-16); Scideator。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2409.14634v7)。
-- 本次核验深度：full_text_sections。
-- 核心内容：围绕目的、机制、评估三个facet组织文献与想法，并按概念距离检索类比文献。
-- 转化为操作：按结构化facet组合机制；避免仅交换领域名。记录论文标题随版本变化。
+- **Authors and version:** Marissa Radensky et al.; arXiv preprint, v7 (2026-05-16); Scideator.
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2409.14634v7).
+- **Review depth:** Selected full-text sections (`full_text_sections`).
+- **Core contribution:** Organize papers and ideas using purpose, mechanism, and evaluation facets, and retrieve analogous papers at controlled conceptual distances.
+- **Skill adaptation:** Recombine structured facets rather than merely swapping domain names. Track title changes across paper versions.
 
 ### P06 · Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents
 
-- 作者与版本：Long Li et al.；Findings of EMNLP 2025。
-- 原始来源：[论文 / 官方页面](https://aclanthology.org/2025.findings-emnlp.477/)。
-- 本次核验深度：abstract。
-- 核心内容：按研究演进链组织文献，帮助理解方法如何逐步解决限制，并提出Idea Arena评估协议。
-- 转化为操作：整理最近方法的限制与后继改进链；比较候选时统一细节。
+- **Authors and version:** Long Li et al.; Findings of EMNLP 2025.
+- **Primary source:** [Paper / official page](https://aclanthology.org/2025.findings-emnlp.477/).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Organize literature into chains of research development to show how successive methods address limitations, and introduce the Idea Arena evaluation protocol.
+- **Skill adaptation:** Trace limitations and subsequent improvements in recent methods, and compare candidates at a consistent level of detail.
 
 ### P07 · MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses
 
-- 作者与版本：Zonglin Yang et al.；ICLR 2025; arXiv v6 (2025-10-27)。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2410.07076v6)。
-- 本次核验深度：abstract。
-- 核心内容：将假设发现分成灵感检索、假设组合和质量排序；在51篇化学论文形成的基准上进行重发现评估。
-- 转化为操作：分开检查灵感质量、组合逻辑与排序；相似重发现不等于新实验成功。
+- **Authors and version:** Zonglin Yang et al.; ICLR 2025; arXiv v6 (2025-10-27).
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2410.07076v6).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Decompose hypothesis discovery into inspiration retrieval, hypothesis composition, and quality ranking, and evaluate rediscovery on a benchmark derived from 51 chemistry papers.
+- **Skill adaptation:** Assess inspiration quality, composition logic, and ranking separately. Similarity-based rediscovery does not establish success in new experiments.
 
 ### P08 · Accelerating scientific discovery with Co-Scientist
 
-- 作者与版本：Juraj Gottweis et al.；Nature, published 2026-05-19。
-- 原始来源：[论文 / 官方页面](https://www.nature.com/articles/s41586-026-10644-y)。
-- 本次核验深度：full_text_sections。
-- 核心内容：专门角色生成、反思、排名、演化与聚类假设，以竞赛反馈和元评审改进后续搜索。
-- 转化为操作：采用有限轮候选演化、去重和批评汇总；不将Elo当成科学真值。
+- **Authors and version:** Juraj Gottweis et al.; Nature, published 2026-05-19.
+- **Primary source:** [Paper / official page](https://www.nature.com/articles/s41586-026-10644-y).
+- **Review depth:** Selected full-text sections (`full_text_sections`).
+- **Core contribution:** Specialized roles generate, reflect on, rank, evolve, and cluster hypotheses, using tournament feedback and meta-review to improve subsequent search.
+- **Skill adaptation:** Use bounded candidate evolution, deduplication, and consolidated critiques. Do not interpret Elo rankings as scientific truth.
 
 ### P09 · The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search
 
-- 作者与版本：Yutaro Yamada et al.；arXiv preprint, v1。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2504.08066v1)。
-- 本次核验深度：abstract。
-- 核心内容：贯通假设、实验、分析与论文写作，以实验管理角色和渐进式树搜索探索方案。
-- 转化为操作：将入选构思交接到小规模实验；保留执行日志与失败分支。
+- **Authors and version:** Yutaro Yamada et al.; arXiv preprint, v1.
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2504.08066v1).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Connect hypothesis generation, experiments, analysis, and paper writing, using an experiment-management role and progressive tree search to explore proposals.
+- **Skill adaptation:** Hand selected ideas over to small-scale experiments and preserve execution logs and unsuccessful branches.
 
 ### P10 · Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers
 
-- 作者与版本：Chenglei Si, Diyi Yang, Tatsunori Hashimoto；ICLR 2025。
-- 原始来源：[论文 / 官方页面](https://proceedings.iclr.cc/paper_files/paper/2025/hash/ea94957d81b1c1caf87ef5319fa6b467-Abstract-Conference.html)。
-- 本次核验深度：abstract。
-- 核心内容：在特定受控人类评测中，LLM方案被评为更新颖，但可行性略弱。
-- 转化为操作：分开评估新颖性与可行性；不将结果推广为所有领域的结论。
+- **Authors and version:** Chenglei Si, Diyi Yang, Tatsunori Hashimoto; ICLR 2025.
+- **Primary source:** [Paper / official page](https://proceedings.iclr.cc/paper_files/paper/2025/hash/ea94957d81b1c1caf87ef5319fa6b467-Abstract-Conference.html).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** In this controlled human evaluation, LLM-generated proposals were judged more novel but slightly weaker in feasibility.
+- **Skill adaptation:** Assess novelty and feasibility separately, and avoid generalizing the finding to every research discipline.
 
 ### P11 · The Ideation-Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas
 
-- 作者与版本：Chenglei Si, Tatsunori Hashimoto, Diyi Yang；ICLR 2026; arXiv first posted 2025。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2506.20803)。
-- 本次核验深度：abstract。
-- 核心内容：43位专家执行随机分配的想法；LLM想法执行后的评审下降更大，初始优势缩小。
-- 转化为操作：每个核心机制必须附最小鉴别实验、反证条件和停止规则。
+- **Authors and version:** Chenglei Si, Tatsunori Hashimoto, Diyi Yang; ICLR 2026; first posted to arXiv in 2025.
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2506.20803).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Forty-three experts executed randomly assigned ideas. Review scores for LLM-generated ideas declined more after execution, narrowing their initial advantage.
+- **Skill adaptation:** Pair every central mechanism with a minimal discriminating experiment, refutation conditions, and a stopping rule.
 
 ### P12 · ResearchGym: Evaluating Language Model Agents on Real-World AI Research
 
-- 作者与版本：Aniketh Garikaparthi, Manasi Patwardhan, Arman Cohan；ICLR 2026 Agents in the Wild Workshop; arXiv v2。
-- 原始来源：[论文 / 官方页面](https://arxiv.org/abs/2602.15112v2)。
-- 本次核验深度：abstract。
-- 核心内容：在固定数据、评估与基线的容器任务中评测完整科研，揭示长程执行的可靠性与资源管理问题。
-- 转化为操作：固定评估边界并安排有信息增益的小实验；保留超时和失败结果。
+- **Authors and version:** Aniketh Garikaparthi, Manasi Patwardhan, Arman Cohan; ICLR 2026 Agents in the Wild Workshop; arXiv v2.
+- **Primary source:** [Paper / official page](https://arxiv.org/abs/2602.15112v2).
+- **Review depth:** Abstract (`abstract`).
+- **Core contribution:** Evaluate end-to-end research in containerized tasks with fixed data, evaluation procedures, and baselines, exposing reliability and resource-management problems in long-horizon execution.
+- **Skill adaptation:** Freeze evaluation boundaries, prioritize small experiments with information value, and retain timeouts and failures.
 
 ### P13 · SciAgents: Automating Scientific Discovery Through Bioinspired Multi-Agent Intelligent Graph Reasoning
 
-- 作者与版本：Alireza Ghafarollahi, Markus J. Buehler；Advanced Materials 37, e2413523。
-- 原始来源：[论文 / 官方页面](https://doi.org/10.1002/adma.202413523)。
-- 本次核验深度：primary_search_abstract_only。
-- 核心内容：结合本体知识图谱、语言模型和多智能体推理，探索生物启发材料中的跨学科联系。
-- 转化为操作：可选用概念与机制关系图辅助跨域检索；关系存在不能直接证明因果或可迁移。
+- **Authors and version:** Alireza Ghafarollahi, Markus J. Buehler; Advanced Materials 37, e2413523.
+- **Primary source:** [Paper / official page](https://doi.org/10.1002/adma.202413523).
+- **Review depth:** Original abstract located through primary-source search only (`primary_search_abstract_only`).
+- **Core contribution:** Combine ontological knowledge graphs, language models, and multi-agent reasoning to explore interdisciplinary relationships in bioinspired materials.
+- **Skill adaptation:** Optionally use concept and mechanism graphs to support cross-domain retrieval. A relationship alone does not establish causality or transferability.
 
-## 3. 关键取舍
+## 3. Key tradeoffs
 
-**检索充分性与创新距离。** 只检索同一任务，容易得到常规延伸；只检索远域，容易忽略已有近邻方法。
-因此先读近邻确认空白，再按共享挑战检索远域，最后回到目标领域查重（P01–P05）。
-“语义距离远”不自动构成创新，必须指出缺失的关键技术步骤。
+**Retrieval coverage and innovation distance.** Searching only within the target task can favor routine extensions; searching only distant domains can overlook close prior work. Read nearby work to establish the gap, search other settings through shared challenges, and then return to the target field to check for overlap (P01–P05). Semantic distance alone does not establish innovation: identify the consequential technical step missing from existing approaches.
 
-**生成多样性与可执行性。** 结合多条生成路线可以增加候选覆盖；竞赛排名和评审也可能偏好表达成熟的方案。
-因此按技术操作去重，统一比较细节，单独评审资源和数据假设（P04、P06、P08、P10）。
-预算档位、候选数和0–4分rubric是本skill的工程默认，不是文献中的通用最优值。
+**Generation diversity and executability.** Multiple generation routes can broaden the candidate pool, while tournament rankings and reviews may favor polished presentation. Deduplicate by technical operation, equalize comparison detail, and review resource and data assumptions separately (P04, P06, P08, P10). The budget tiers, candidate counts, and 0–4 rubric are engineering defaults of this skill, not universally optimal settings established by these papers.
 
-**方案评分与实际效用。** IdeaScientist的主要实验比较构思方案；其同骨干Base与Trained总体分数为73.5和74.6，
-对照DeepScientist为60.6。由此可见流程有重要贡献，RL的额外收益需与流程收益区分。
-P11和P12进一步提示：在执行中，假设质量、资源管理、实现和评估可靠性都会影响结果。
-因此将proposal_only、preliminary_validated、independently_validated分开；所有预测都配反证条件。
+**Proposal scores and practical utility.** IdeaScientist's main experiments compare research proposals. On the same backbone, its Base and Trained variants score 73.5 and 74.6 overall, versus 60.6 for DeepScientist. This comparison indicates a substantial workflow contribution; the additional RL gain should be distinguished from the workflow gain. P11 and P12 further show why hypothesis quality, resource management, implementation, and evaluation reliability matter during execution. Accordingly, distinguish `proposal_only`, `preliminary_validated`, and `independently_validated`, and attach refutation conditions to predictions.
 
-**受控检索与记忆污染。** P01和P07采用时间控制的重发现设计，但检索截止日期与模型参数知识是不同边界。
-进行回溯评测时应报告模型知识风险，并隐藏目标方法及结果；普通科研检索应覆盖当前文献。
+**Controlled retrieval and memory contamination.** P01 and P07 use temporally controlled rediscovery designs, but a retrieval cutoff and knowledge stored in model parameters are different boundaries. Retrospective evaluation should hide target methods and results and report model-memory risks. Ordinary research searches should cover current literature.
 
-**分角色与真正独立。** 分工能使中间产物可检查；一个模型顺序扮演角色仍不等于独立盲评。
-本skill同时支持单智能体与可选独立角色，并要求如实标记独立性。
-它不需要重新训练角色、构建百万论文库或部署指定模型。
+**Role separation and genuine independence.** Specialized roles make intermediate artifacts inspectable. One model acting sequentially as several roles still does not constitute independent blind review. This skill supports one agent or optional independent roles and requires truthful reporting of independence. It does not require role retraining, a million-paper database, or a particular model.
 
-## 4. 本 skill 的综合设计
+## 4. Synthesis into this skill
 
-1. 固定问题、输入输出、资源和评估契约。
-2. 保留检索记录和带定位的来源证据。
-3. 从近邻方法推导普通方案，在候选生成前冻结。
-4. 用结构迁移、facet组合、假设变化与简化等不同路线生成机制。
-5. 分别评估新颖性、证据、逻辑、可行性和可检验性。
-6. 用最小鉴别实验区分新机制与简单替代解释。
-7. 保留否定意见、失败候选和实际验证状态。
+1. Fix the question, inputs and outputs, resources, and evaluation contract.
+2. Preserve actual search records and source evidence with locators.
+3. Derive ordinary approaches from close prior work and freeze them before candidate generation.
+4. Generate mechanisms through structural transfer, facet recombination, assumption changes, and simplification.
+5. Assess novelty, grounding, soundness, feasibility, and testability separately.
+6. Use minimal discriminating experiments to distinguish a new mechanism from simpler alternative explanations.
+7. Preserve objections, rejected candidates, and the actual validation status.
 
-以上为面向本地智能体的原创流程综合。引用用于说明设计依据；没有复制或分发论文全文、作者代码或训练权重，
-也没有声称这一组合已经经过论文级实验验证。
+This is an original workflow synthesis for local agents. Citations explain the design basis; the skill does not reproduce or distribute paper full texts, author code, or trained weights, and the combined workflow is not claimed to have undergone publication-level experimental validation.
 
-## 5. 使用边界
+## 5. Scope and limitations
 
-调用时重新检索当前任务的近邻工作。本调研不替代领域专家核验，也不构成新颖性保证。
-摘要级依据只能支持相应范围的判断；核心机制与创新性判断应读取原文方法部分。
-P13正文访问受限，仅据原始摘要检索核验其高层设计。
-Scideator在不同版本采用不同标题，本表采用arXiv v7的标题，保留系统名以便检索。
+Search the closest prior work for each new task. This review does not replace domain-expert verification or guarantee novelty. Abstract-level access supports only corresponding high-level claims; mechanism and novelty judgments should inspect the original methods.
+
+P13's full text was inaccessible, so only its high-level design was checked through the original abstract in search results. Scideator uses different titles across versions; this review follows arXiv v7 while retaining the system name for retrieval.
