@@ -99,7 +99,8 @@ python skills/research-ideation/scripts/ideation.py validate --out ./runs/demo -
 
 IdeaScientist、SciMON、ResearchAgent、SciPIP、Scideator、Chain of Ideas、MOOSE-Chem、Co-Scientist、The AI Scientist-v2、Can LLMs Generate Novel Research Ideas?、The Ideation–Execution Gap、ResearchGym 和 SciAgents。
 
-- [中文文献综述与方法对照](skills/research-ideation/references/literature-review.zh-CN.md)（[English](skills/research-ideation/references/literature-review.md)）
+- [文献综述与方法对照（中文版）](skills/research-ideation/references/literature-review.zh-CN.md)
+- [Literature Review and Method Comparison (English)](skills/research-ideation/references/literature-review.md)
 - [机器可读文献条目](skills/research-ideation/references/bibliography.json)
 - [完整 skill 指令](skills/research-ideation/SKILL.md)
 - [评审准则](skills/research-ideation/references/evaluation.md)
