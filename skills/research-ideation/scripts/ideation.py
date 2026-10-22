@@ -218,7 +218,7 @@ def validate(out, stage="final"):
     for j, baseline in enumerate(baselines):
         path = f"baseline_derivations[{j}]"
         text(baseline, "mechanism", path)
-        refs(strings(baseline, "source_ids", path, 1), path + ".source_ids")
+        refs(strings(baseline, "source_ids", path, 1 if final else 0), path + ".source_ids")
         strings(baseline, "assumptions", path, 1)
         strings(baseline, "steps", path, 1)
     if final and len(baselines) < 2:
@@ -246,11 +246,11 @@ def validate(out, stage="final"):
             err(path + ".gap_id", "unknown gap id")
         for key in ("title", "mechanism", "derivation_delta"):
             text(idea, key, path)
-        refs(strings(idea, "source_ids", path, 1), path + ".source_ids")
+        refs(strings(idea, "source_ids", path, 1 if final else 0), path + ".source_ids")
         strings(idea, "assumptions", path, 1)
         if idea.get("status") not in ("candidate", "revise", "reject", "selected", "unvalidated"):
             err(path + ".status", "invalid status")
-        for j, prior in enumerate(array(idea, "closest_prior_art", path, 1)):
+        for j, prior in enumerate(array(idea, "closest_prior_art", path, 1 if final else 0)):
             pp = f"{path}.closest_prior_art[{j}]"
             if not isinstance(prior, dict):
                 err(pp, "must be an object")
@@ -293,7 +293,7 @@ def validate(out, stage="final"):
             err(path + ".reviewer_role", "invalid role")
         if review.get("verdict") not in ("survive", "revise", "reject"):
             err(path + ".verdict", "invalid verdict")
-        refs(strings(review, "evidence_source_ids", path, 1), path + ".evidence_source_ids")
+        refs(strings(review, "evidence_source_ids", path, 1 if final else 0), path + ".evidence_source_ids")
         text(review, "objection", path)
         text(review, "response", path)
         scores = review.get("scores")
@@ -396,7 +396,8 @@ def main(argv=None):
             if errors:
                 print("\n".join("ERROR " + e for e in errors), file=sys.stderr)
                 return 1
-            print("Artifact structure is consistent. Scientific validity and novelty require review.")
+            print("Draft structure is consistent; evidence completeness is not checked." if args.stage == "draft"
+                  else "Artifact structure is consistent. Scientific validity and novelty require review.")
     except (OSError, ValueError) as exc:
         print("ERROR " + str(exc), file=sys.stderr)
         return 1

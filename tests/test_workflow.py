@@ -92,6 +92,29 @@ class WorkflowTests(unittest.TestCase):
         self.run["ideas"][0]["source_ids"] = ["MISSING"]
         self.assertTrue(any("unknown source" in e for e in self.errors()))
 
+    def test_draft_allows_explicit_evidence_gaps(self):
+        self.run["sources"] = []
+        self.run["gaps"][0]["supporting_source_ids"] = []
+        self.run["gaps"][0]["nearest_work"] = []
+        for baseline in self.run["baseline_derivations"]:
+            baseline["source_ids"] = []
+        self.run["ideas"][0]["source_ids"] = []
+        self.run["ideas"][0]["closest_prior_art"] = []
+        for review in self.run["reviews"]:
+            review["evidence_source_ids"] = []
+        # Construct a lock for this synthetic fixture's initial, empty-evidence baselines.
+        ideation.write_json(self.out / "baselines.lock.json", {
+            "sha256": ideation.digest(self.run["baseline_derivations"]),
+            "baseline_derivations": self.run["baseline_derivations"]})
+        self.save()
+        self.assertEqual(ideation.validate(self.out, "draft"), [])
+        self.assertTrue(ideation.validate(self.out, "final"))
+
+    def test_draft_still_rejects_unknown_citations(self):
+        self.run["ideas"][0]["source_ids"] = ["MISSING"]
+        self.save()
+        self.assertTrue(any("unknown source" in e for e in ideation.validate(self.out, "draft")))
+
     def test_frozen_content_change(self):
         self.run["baseline_derivations"][0]["mechanism"] = "Changed after generation"
         self.assertTrue(any("digest mismatch" in e for e in self.errors()))

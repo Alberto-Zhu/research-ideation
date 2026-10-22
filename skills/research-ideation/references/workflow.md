@@ -114,6 +114,10 @@ preliminary_validated, and independently_validated status. Attach real evidence 
 
 Offline: use inspected supplied material, name the corpus boundary, and mark novelty
 coverage incomplete. Bundled background literature is not a current task-specific search.
+Use validate --stage draft for provisional work: empty evidence lists are allowed, while
+unknown source IDs and structural contradictions still fail. Final validation requires
+completed evidence. Label unproved numerical bounds, formulas, and proposed baselines
+as conjectures or derivation targets, not established results.
 
 Retrospective: filter by publication date, not ingestion. Hide target methods/results
 from the proposing context. Separate tasks by source paper and shared problem identity.
