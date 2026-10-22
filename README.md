@@ -100,7 +100,8 @@ The background review covers 13 core works, verified on **October 22, 2026**:
 
 IdeaScientist; SciMON; ResearchAgent; SciPIP; Scideator; Chain of Ideas; MOOSE-Chem; Co-Scientist; The AI Scientist-v2; Can LLMs Generate Novel Research Ideas?; The Ideation–Execution Gap; ResearchGym; and SciAgents.
 
-- [Literature review and method comparison](skills/research-ideation/references/literature-review.md) ([简体中文](skills/research-ideation/references/literature-review.zh-CN.md))
+- [Literature Review and Method Comparison (English)](skills/research-ideation/references/literature-review.md)
+- [文献综述与方法对照（中文版）](skills/research-ideation/references/literature-review.zh-CN.md)
 - [Machine-readable bibliography](skills/research-ideation/references/bibliography.json)
 - [Complete skill instructions](skills/research-ideation/SKILL.md)
 - [Evaluation rubric](skills/research-ideation/references/evaluation.md)
